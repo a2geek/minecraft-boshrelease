@@ -7,6 +7,7 @@ templates:
   eula.txt:               config/eula.txt
   server.properties.erb:  config/server.properties
   ops.json.erb:           config/ops.json
+  pre-stop:               bin/pre-stop
 
 packages:
 - openjdk-11

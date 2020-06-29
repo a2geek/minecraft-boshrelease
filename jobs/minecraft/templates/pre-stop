@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CONSOLE=/var/vcap/data/minecraft/console.in
+printf "say Shutting down in 30 seconds: $(date --date='30 seconds')\r" >> ${CONSOLE}
+sleep 30
