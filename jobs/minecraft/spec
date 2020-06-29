@@ -1,0 +1,17 @@
+---
+name: minecraft
+
+templates:
+  bpm.yml:                config/bpm.yml
+  ctl:                    bin/ctl
+  eula.txt:               config/eula.txt
+  server.properties.erb:  config/server.properties
+
+packages:
+- openjdk-11
+- minecraft
+
+properties:
+  port:
+    description: Port that Minecraft listens on
+    default: 25565

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+JOB_BASE=/var/vcap/jobs/minecraft
+WORLD_DIR=/var/vcap/store/minecraft/world
+LOG_DIR=/var/vcap/sys/log/minecraft
+
+mkdir -p ${LOG_DIR} ${WORLD_DIR}
+chown -R vcap:vcap ${LOG_DIR} ${WORLD_DIR}
+
+source ${JOB_BASE}/packages/openjdk-11/bosh/runtime.env
+export MINECRAFT_DIR=${JOB_BASE}/packages/minecraft
+
+cp config/server.properties config/eula.txt ${WORLD_DIR}
+
+cd ${WORLD_DIR}
+exec java -Xmx1024M -Xms1024M -jar ${MINECRAFT_DIR}/server.jar nogui \
+  >>  ${LOG_DIR}/minecraft.stdout.log \
+  2>> ${LOG_DIR}/minecraft.stderr.log

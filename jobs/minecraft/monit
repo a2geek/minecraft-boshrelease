@@ -1,0 +1,5 @@
+check process server
+  with pidfile /var/vcap/sys/run/bpm/minecraft/minecraft.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start minecraft"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop minecraft"
+  group vcap

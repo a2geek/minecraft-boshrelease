@@ -1,0 +1,10 @@
+# /var/vcap/jobs/minecraft/config/bpm.yml
+processes:
+- name: minecraft
+  executable: /var/vcap/jobs/minecraft/bin/ctl
+
+  ephemeral_disk: true
+  persistent_disk: true
+
+  capabilities:
+  - NET_BIND_SERVICE

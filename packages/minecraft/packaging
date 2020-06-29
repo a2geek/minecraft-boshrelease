@@ -1,0 +1,3 @@
+set -e
+
+cp minecraft/server*.jar ${BOSH_INSTALL_TARGET}/server.jar

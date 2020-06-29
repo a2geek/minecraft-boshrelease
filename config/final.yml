@@ -1,5 +1,5 @@
 ---
-final_name: minecraft-boshrelease
+final_name: minecraft
 blobstore:
   provider: local
   options:

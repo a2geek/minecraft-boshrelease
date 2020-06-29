@@ -1,0 +1,7 @@
+---
+name: minecraft
+
+dependencies: []
+
+files:
+- minecraft/server.1.16.1.jar

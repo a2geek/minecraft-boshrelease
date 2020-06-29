@@ -1,0 +1,41 @@
+---
+name: minecraft
+
+releases:
+- name: minecraft
+  version: TBD
+  url: TBD
+  sha1: TBD
+- name: "bpm"
+  version: "1.1.8"
+  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.1.8"
+  sha1: "c956394fce7e74f741e4ae8c256b480904ad5942"
+
+instance_groups:
+- name: minecraft
+  instances: 1
+  vm_type:   minecraft
+  stemcell:  default
+  azs:       [z1]
+  networks:
+  - name:    default
+  persistent_disk: 10240
+  jobs:
+  - name:    minecraft
+    release: minecraft
+    properties:
+      bpm:
+        enabled: true
+  - name: bpm
+    release: bpm
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 5000-60000
+  update_watch_time: 5000-60000
+
+stemcells:
+- alias: default
+  os: ubuntu-xenial
+  version: latest
