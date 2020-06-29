@@ -8,6 +8,8 @@ templates:
   server.properties.erb:  config/server.properties
   ops.json.erb:           config/ops.json
   pre-stop:               bin/pre-stop
+  post-start:             bin/post-start
+  post-start.in.erb:      config/post-start.in
 
 packages:
 - openjdk-11
@@ -30,3 +32,8 @@ properties:
           "level": 4
         }
       ]
+  init-commands:
+    description: Custom commands for Minecraft to execute upon startup (including a restart or recreate)
+    example: |
+      op MyNameHere
+      gamerule keepInventory true

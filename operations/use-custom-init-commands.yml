@@ -1,0 +1,5 @@
+# For formatting, see: https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server#Configuring_the_Minecraft_server
+---
+- type: replace
+  path: /instance_groups/name=minecraft/jobs/name=minecraft/properties/init-commands?
+  value: ((init-commands))

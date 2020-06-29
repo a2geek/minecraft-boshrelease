@@ -10,6 +10,7 @@ dev:
 	     -o operations/use-latest-dev.yml \
 		 -o operations/set-custom-ops-json.yml \
 		 -o operations/set-custom-server-properties.yml \
+		 -o operations/use-custom-init-commands.yml \
 		 -l vars.yml
 
 rmdev:

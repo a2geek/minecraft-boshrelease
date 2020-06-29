@@ -1,0 +1,10 @@
+#!/bin/bash
+
+JOB_BASE=/var/vcap/jobs/minecraft
+POST_START=${JOB_BASE}/config/post-start.in
+CONSOLE=/var/vcap/data/minecraft/console.in
+
+cat ${POST_START} | while read LINE
+  do
+    printf "${LINE}\n" >> ${CONSOLE}
+  done

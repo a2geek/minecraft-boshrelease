@@ -9,6 +9,7 @@ $ bosh -n -d minecraft deploy manifest.yml \
      -o operations/use-latest-dev.yml \
 	 -o operations/set-custom-ops-json.yml \
 	 -o operations/set-custom-server-properties.yml \
+   -o operations/use-custom-init-commands.yml \
 	 -l vars.yml
 ```
 
@@ -25,6 +26,9 @@ ops-json: |
 server-properties: |
   online-mode=true
   server-port=25565
+init-commands: |
+  op MyNameHere
+  gamerule keepInventory true
 ```
 
 # TODO
