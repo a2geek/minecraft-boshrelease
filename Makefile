@@ -8,7 +8,8 @@ dev:
 	bosh upload-release
 	bosh -n -d minecraft deploy manifest.yml \
 	     -o operations/use-latest-dev.yml \
-		 -o operations/set-custom-ops.yml \
+		 -o operations/set-custom-ops-json.yml \
+		 -o operations/set-custom-server-properties.yml \
 		 -l vars.yml
 
 rmdev:

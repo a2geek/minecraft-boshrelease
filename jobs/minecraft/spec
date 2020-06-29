@@ -13,10 +13,19 @@ packages:
 - minecraft
 
 properties:
-  port:
-    description: Port that Minecraft listens on
-    default: 25565
-  ops:
+  server-properties:
+    description: Minecraft server.properties file; see https://minecraft.gamepedia.com/Server.properties
+    default: |
+      online-mode=false
+      server-port=25565
+  ops-json:
     description: Minecraft operators; see https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server#Configuring_the_Minecraft_server
     default: []
-    example: [{"name":"MyNameHere","uuid":"0b9e6b95-b305-45d5-b6e7-fc5c5721056e","level":4}]
+    example: |
+      [
+        {
+          "name": "MyNameHere",
+          "uuid": "0b9e6b95-b305-45d5-b6e7-fc5c5721056e",
+          "level": 4
+        }
+      ]
