@@ -7,7 +7,9 @@ dev:
 	bosh create-release --force
 	bosh upload-release
 	bosh -n -d minecraft deploy manifest.yml \
-	     -o operations/use-latest-dev.yml
+	     -o operations/use-latest-dev.yml \
+		 -o operations/set-custom-ops.yml \
+		 -l vars.yml
 
 rmdev:
 	bosh -n -d minecraft delete-deployment

@@ -6,6 +6,7 @@ templates:
   ctl:                    bin/ctl
   eula.txt:               config/eula.txt
   server.properties.erb:  config/server.properties
+  ops.json.erb:           config/ops.json
 
 packages:
 - openjdk-11
@@ -15,3 +16,7 @@ properties:
   port:
     description: Port that Minecraft listens on
     default: 25565
+  ops:
+    description: Minecraft operators; see https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server#Configuring_the_Minecraft_server
+    default: []
+    example: [{"name":"MyNameHere","uuid":"0b9e6b95-b305-45d5-b6e7-fc5c5721056e","level":4}]

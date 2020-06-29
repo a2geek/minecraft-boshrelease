@@ -10,7 +10,7 @@ chown -R vcap:vcap ${LOG_DIR} ${WORLD_DIR}
 source ${JOB_BASE}/packages/openjdk-11/bosh/runtime.env
 export MINECRAFT_DIR=${JOB_BASE}/packages/minecraft
 
-cp config/server.properties config/eula.txt ${WORLD_DIR}
+cp config/server.properties config/eula.txt config/ops.json ${WORLD_DIR}
 
 cd ${WORLD_DIR}
 exec java -Xmx1024M -Xms1024M -jar ${MINECRAFT_DIR}/server.jar nogui \
