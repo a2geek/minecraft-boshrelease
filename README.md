@@ -40,6 +40,7 @@ init-commands: |
 * https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server#Configuring_the_Minecraft_server
 * https://minecraft.gamepedia.com/Server.properties
 * https://www.minecraft.net/en-us/download/server
+* https://github.com/MinecraftServerControl/mscs
 * Other BOSH releases of Minecraft:
   * https://github.com/martyca/minecraft-boshrelease
   * https://github.com/JCubedS/minecraft-release
