@@ -1,0 +1,7 @@
+---
+name: lotr-minecraft
+
+dependencies: []
+
+files:
+- minecraft/lotr-minecraft-1.7.10.zip

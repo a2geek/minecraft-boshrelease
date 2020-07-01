@@ -11,6 +11,8 @@ dev:
 		 -o operations/set-custom-ops-json.yml \
 		 -o operations/set-custom-server-properties.yml \
 		 -o operations/use-custom-init-commands.yml \
+		 -o operations/use-custom-modpack.yml \
+		 -o operations/set-java-memory.yml \
 		 -l vars.yml
 
 rmdev:

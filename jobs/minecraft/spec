@@ -3,7 +3,7 @@ name: minecraft
 
 templates:
   bpm.yml:                config/bpm.yml
-  ctl:                    bin/ctl
+  ctl.erb:                bin/ctl
   eula.txt:               config/eula.txt
   server.properties.erb:  config/server.properties
   ops.json.erb:           config/ops.json
@@ -12,10 +12,19 @@ templates:
   post-start.in.erb:      config/post-start.in
 
 packages:
+- openjdk-8
 - openjdk-11
 - minecraft
+- lotr-minecraft
 
 properties:
+  java-memory:
+    description: Set the memory available to the Java VM.
+    default: 1024M
+  minecraft-modpack:
+    description: Select a Minecraft modpack (leave blank for minecraft; valid modpacks are lotr).
+    default:
+    example: lotr
   server-properties:
     description: Minecraft server.properties file; see https://minecraft.gamepedia.com/Server.properties
     default: |
