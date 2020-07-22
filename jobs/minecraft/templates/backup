@@ -2,6 +2,10 @@
 
 set -eou pipefail
 
+exec >> /var/vcap/sys/log/minecraft/backup.log 2>&1
+
+echo "Start Time: $(date)"
+
 function restart_minecraft() {
     echo "Starting Minecraft..."
     monit start server
@@ -26,7 +30,7 @@ monit stop server
 sleep 60    # Being lazy...
 
 # These files may not be present, silently fail
-echo "Moving backup history around; keeping 3 versions...
+echo "Moving backup history around; keeping 3 versions..."
 rm ${BACKUP3} || true
 mv ${BACKUP2} ${BACKUP3} || true
 mv ${BACKUP1} ${BACKUP2} || true
