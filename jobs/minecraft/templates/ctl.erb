@@ -15,7 +15,7 @@ LOG_DIR=/var/vcap/sys/log/minecraft
 CONSOLE=/var/vcap/data/minecraft/console.in
 
 mkdir -p ${LOG_DIR} ${MODPACK_DIR} ${UNIVERSE_DIR}
-chown -R vcap:vcap ${LOG_DIR} ${MODPACK_DIR} ${UNIVERSE_DIR}
+chown -R vcap:vcap ${LOG_DIR} ${MODPACK_DIR} ${UNIVERSE_DIR} || true
 
 case "<%= p('minecraft-modpack') %>" in
   "lotr")
