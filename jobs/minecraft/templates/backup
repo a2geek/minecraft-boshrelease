@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -eou pipefail
+
+function restart_minecraft() {
+    echo "Starting Minecraft..."
+    monit start server
+}
+
+# When we exit (whatever the reason), restart the server
+trap restart_minecraft EXIT
+
+MINECRAFT_DIR=/var/vcap/store/minecraft
+UNIVERSE_DIR=${MINECRAFT_DIR}/universe
+BACKUP_DIR=${MINECRAFT_DIR}/backup
+BACKUP1=${BACKUP_DIR}/backup1.tgz
+BACKUP2=${BACKUP_DIR}/backup2.tgz
+BACKUP3=${BACKUP_DIR}/backup3.tgz
+
+echo "Stopping Minecraft..."
+monit stop server
+sleep 60    # Being lazy...
+
+# These files may not be present, silently fail
+echo "Moving backup history around; keeping 3 versions...
+rm ${BACKUP3} || true
+mv ${BACKUP2} ${BACKUP3} || true
+mv ${BACKUP1} ${BACKUP2} || true
+
+echo "Starting backup..."
+tar czvf ${BACKUP1} ${UNIVERSE_DIR}

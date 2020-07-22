@@ -1,0 +1,6 @@
+# See https://help.ubuntu.com/community/CronHowto (and any other cron reference)
+# For a nice pictogram of the layout: https://opensource.com/article/17/11/how-use-cron-linux
+---
+- type: replace
+  path: /instance_groups/name=minecraft/jobs/name=minecraft/properties/backup-schedule?
+  value: ((backup-schedule))

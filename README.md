@@ -1,16 +1,19 @@
 # Minecraft Server BOSH Release
 
-This will deploy Minecraft into a BOSH server.
+This will deploy Minecraft into a BOSH server. (Modpacks currently supported: LOTR.)
 
 # Configuration
 
 ```
-$ bosh -n -d minecraft deploy manifest.yml \
-     -o operations/use-latest-dev.yml \
-	 -o operations/set-custom-ops-json.yml \
-	 -o operations/set-custom-server-properties.yml \
-   -o operations/use-custom-init-commands.yml \
-	 -l vars.yml
+$ 	bosh -n -d minecraft deploy manifest.yml \
+	     -o operations/use-latest-dev.yml \
+       -o operations/set-custom-ops-json.yml \
+       -o operations/set-custom-server-properties.yml \
+       -o operations/use-custom-init-commands.yml \
+       -o operations/use-custom-modpack.yml \
+       -o operations/set-java-memory.yml \
+       -o operations/set-backup-schedule.yml \
+       -l vars.yml
 ```
 
 ```
@@ -29,6 +32,10 @@ server-properties: |
 init-commands: |
   op MyNameHere
   gamerule keepInventory true
+minecraft-modpack: lotr
+java-memory: 2048M
+# 3AM CST = 8AM UTC/GMT
+backup-schedule: 0 8 * * *
 ```
 
 # TODO

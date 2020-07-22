@@ -13,6 +13,7 @@ dev:
 		 -o operations/use-custom-init-commands.yml \
 		 -o operations/use-custom-modpack.yml \
 		 -o operations/set-java-memory.yml \
+		 -o operations/set-backup-schedule.yml \
 		 -l vars.yml
 
 rmdev:

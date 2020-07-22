@@ -10,12 +10,13 @@ set -eou pipefail
 JOB_BASE=/var/vcap/jobs/minecraft
 MINECRAFT_DIR=/var/vcap/store/minecraft
 UNIVERSE_DIR=${MINECRAFT_DIR}/universe
+BACKUP_DIR=${MINECRAFT_DIR}/backup
 MODPACK_DIR=${MINECRAFT_DIR}/modpack
 LOG_DIR=/var/vcap/sys/log/minecraft
 CONSOLE=/var/vcap/data/minecraft/console.in
 
-mkdir -p ${LOG_DIR} ${MODPACK_DIR} ${UNIVERSE_DIR}
-chown -R vcap:vcap ${LOG_DIR} ${MODPACK_DIR} ${UNIVERSE_DIR} || true
+mkdir -p ${LOG_DIR} ${MODPACK_DIR} ${UNIVERSE_DIR} ${BACKUP_DIR}
+chown -R vcap:vcap ${LOG_DIR} ${MODPACK_DIR} ${UNIVERSE_DIR} ${BACKUP_DIR} || true
 
 case "<%= p('minecraft-modpack') %>" in
   "lotr")

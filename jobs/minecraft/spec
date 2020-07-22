@@ -10,6 +10,8 @@ templates:
   pre-stop:               bin/pre-stop
   post-start:             bin/post-start
   post-start.in.erb:      config/post-start.in
+  backup:                 bin/backup
+  pre-start.erb:          bin/pre-start
 
 packages:
 - openjdk-8
@@ -46,3 +48,6 @@ properties:
     example: |
       op MyNameHere
       gamerule keepInventory true
+  backup-schedule:
+    description: Crontab entry for scheduling the backup
+    default: 0 0 * * *
