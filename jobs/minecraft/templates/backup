@@ -16,6 +16,10 @@ BACKUP_DIR=${MINECRAFT_DIR}/backup
 BACKUP1=${BACKUP_DIR}/backup1.tgz
 BACKUP2=${BACKUP_DIR}/backup2.tgz
 BACKUP3=${BACKUP_DIR}/backup3.tgz
+CONSOLE=/var/vcap/data/minecraft/console.in
+
+printf "say Shutting down for system backup in 30 seconds: $(date --date='30 seconds')\r" >> ${CONSOLE}
+sleep 30
 
 echo "Stopping Minecraft..."
 monit stop server
