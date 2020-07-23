@@ -15,7 +15,7 @@ function restart_minecraft() {
 trap restart_minecraft EXIT
 
 MINECRAFT_DIR=/var/vcap/store/minecraft
-UNIVERSE_DIR=${MINECRAFT_DIR}/universe
+UNIVERSE_PATH=universe
 BACKUP_DIR=${MINECRAFT_DIR}/backup
 BACKUP1=${BACKUP_DIR}/backup1.tgz
 BACKUP2=${BACKUP_DIR}/backup2.tgz
@@ -36,4 +36,4 @@ mv ${BACKUP2} ${BACKUP3} || true
 mv ${BACKUP1} ${BACKUP2} || true
 
 echo "Starting backup..."
-tar czvf ${BACKUP1} ${UNIVERSE_DIR}
+tar czvf ${BACKUP1} -C ${MINECRAFT_DIR} ${UNIVERSE_PATH}

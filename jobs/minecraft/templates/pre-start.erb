@@ -1,4 +1,10 @@
 #!/bin/bash
 
 echo "(Re-)Creating the backup crontab schedule: <%= p('backup-schedule') %>"
-echo "<%= p('backup-schedule') %> root /var/vcap/jobs/minecraft/bin/backup" > /etc/cron.d/backup-minecraft
+cat > /etc/cron.d/backup-minecraft << EOF
+# /etc/cron.d/backup-minecraft: crontab entries for minecraft backups
+
+PATH=/var/vcap/bosh/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+<%= p('backup-schedule') %> root /var/vcap/jobs/minecraft/bin/backup
+EOF
