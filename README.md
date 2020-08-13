@@ -36,6 +36,11 @@ minecraft-modpack: lotr
 java-memory: 2048M
 # 3AM CST = 8AM UTC/GMT
 backup-schedule: 0 8 * * *
+custom-users:
+- name: userA
+  public_key: ssh-rsa AAAAA....
+- name: userB
+  public_key: ssh-rsa BBBBB....
 ```
 
 # TODO

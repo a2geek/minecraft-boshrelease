@@ -14,6 +14,7 @@ dev:
 		 -o operations/use-custom-modpack.yml \
 		 -o operations/set-java-memory.yml \
 		 -o operations/set-backup-schedule.yml \
+		 -o operations/add-users.yml \
 		 -l vars.yml
 
 rmdev:

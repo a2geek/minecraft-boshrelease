@@ -1,0 +1,17 @@
+---
+- type: replace
+  path: /instance_groups/name=minecraft/jobs/-
+  value:
+    name: user_add
+    release: os-conf
+    properties:
+      persistent_homes: true
+      users: ((custom-users))
+
+- type: replace
+  path: /releases/-
+  value:
+    name: "os-conf"
+    version: "22.0.0"
+    url: "https://bosh.io/d/github.com/cloudfoundry/os-conf-release?v=22.0.0"
+    sha1: "6946056ad69ae378cb89c9ef76daf66370a7dc6a"
